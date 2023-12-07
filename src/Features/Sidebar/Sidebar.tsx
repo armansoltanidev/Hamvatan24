@@ -9,12 +9,13 @@ import {
   TbSettings,
   TbBellExclamation,
   TbLayout2,
+  TbUsersGroup,
 } from "react-icons/tb";
 
 export default function Sidebar() {
   return (
     <div className="flex flex-col gap-y-2 p-2">
-      <SidebarItem to="/dashboard">
+      <SidebarItem to="/credit">
         <TbDeviceSim />
         <span>شارژ و بسته</span>
       </SidebarItem>
@@ -22,9 +23,13 @@ export default function Sidebar() {
         <TbCalendarExclamation />
         <span>گـزارشــات</span>
       </SidebarItem>
+      <SidebarItem to="/contact">
+        <TbUsersGroup />
+        <span>مخـــاطبین</span>
+      </SidebarItem>
       <SidebarItem to="/bills">
         <TbMailDollar />
-        <span>قبوض</span>
+        <span>قـبـوض</span>
       </SidebarItem>
       <SidebarItem to="/inquiry">
         <TbDeviceIpadSearch />

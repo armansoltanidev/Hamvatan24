@@ -8,7 +8,7 @@ type SidebarItemProps = {
 export default function SidebarItem({ children, to }: SidebarItemProps) {
   return (
     <NavLink
-      className="flex items-center gap-x-2 text-gray-700 rounded-md w-full px-4 py-3 bg-gray-50 border border-input text-lg"
+      className="flex items-center gap-x-2 text-foreground rounded-md w-full px-4 py-3 border border-input text-lg icon-size"
       to={to}
     >
       {children}
