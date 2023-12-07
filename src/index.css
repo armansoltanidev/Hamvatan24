@@ -74,3 +74,41 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: "yekan-thin";
+  src: url("/public/fonts/YekanBakh-Thin.woff2"), format(".woff2");
+}
+@font-face {
+  font-family: "yekan-light";
+  src: url("/public/fonts/YekanBakh-Light.woff2"), format(".woff2");
+}
+@font-face {
+  font-family: "yekan-regular";
+  src: url("/public/fonts/YekanBakh-Regular.woff2"), format(".woff2");
+}
+@font-face {
+  font-family: "yekan-semibold";
+  src: url("/public/fonts/YekanBakh-SemiBold.woff2"), format(".woff2");
+}
+@font-face {
+  font-family: "yekan-bold";
+  src: url("/public/fonts/YekanBakh-Bold.woff2"), format(".woff2");
+}
+@font-face {
+  font-family: "yekan-ebold";
+  src: url("/public/fonts/YekanBakh-ExtraBold.woff2"), format(".woff2");
+}
+@font-face {
+  font-family: "yekan-black";
+  src: url("/public/fonts/YekanBakh-Black.woff2"), format(".woff2");
+}
+@font-face {
+  font-family: "yekan-eblack";
+  src: url("/public/fonts/YekanBakh-ExtraBlack.woff2"), format(".woff2");
+}
+
+.active {
+  background-color: #4b5563;
+  color: #fff;
+}
