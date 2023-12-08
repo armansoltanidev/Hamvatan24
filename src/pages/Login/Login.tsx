@@ -19,7 +19,7 @@ export default function Login() {
         </h2>
         <div className="mt-8 flex flex-col gap-2">
           <Input placeholder="********۹" />
-          <Link to='/dashboard'>
+          <Link to="/">
             <Button className="w-full" size="lg">
               ورود
             </Button>
