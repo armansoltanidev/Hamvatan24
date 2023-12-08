@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 import {
   Table,
   TableBody,
@@ -24,6 +22,10 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
+
+import { useForm } from "react-hook-form";
+
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const invoices = [
   {
@@ -78,17 +80,32 @@ const invoices = [
   },
 ];
 
+type Inputs = {
+  phoneNumber: number;
+  amount: number;
+  operator: string;
+};
+
 export default function Credits() {
+  const { register, handleSubmit } = useForm<Inputs>();
+
+  function onSubmit() {
+    console.log(`hey`);
+  }
   return (
     <div className="grid grid-cols-[2fr_1fr] gap-x-2 h-full">
       <div className="flex flex-col justify-around p-16 border-2 border-primary-background rounded-md">
-        <div className="flex flex-col gap-6">
+        <form
+          onSuspend={handleSubmit(onSubmit)}
+          className="flex flex-col gap-6"
+        >
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="number" className="font-ybold">
               شماره تلفن
             </Label>
             <div className="flex items-center gap-x-2">
               <Input
+                {...register("phoneNumber", { required: true })}
                 className="text-left placeholder:text-right"
                 id="number"
                 placeholder="شماره تلفن خود را وارد کنید"
@@ -103,6 +120,7 @@ export default function Credits() {
               مبـلغ شارژ
             </Label>
             <Input
+              {...register("amount", { required: true })}
               className="text-left placeholder:text-right"
               id="number"
               placeholder="برای مثال ۱۰۰ افغانی"
@@ -119,15 +137,32 @@ export default function Credits() {
           </div>
           <div className="flex flex-col gap-y-3">
             <Label className="font-ybold">انتخاب اپراتور</Label>
-            <Tabs defaultValue="account">
-              <TabsList defaultValue="mtn">
-                <TabsTrigger value="mtn">ام تی ان</TabsTrigger>
-                <TabsTrigger value="etesalat">اتصالات</TabsTrigger>
-                <TabsTrigger value="roshan">روشــن</TabsTrigger>
-                <TabsTrigger value="aghanbisim">افغان بیــسیم</TabsTrigger>
-                <TabsTrigger value="salam">سلام</TabsTrigger>
-              </TabsList>
-            </Tabs>
+            <RadioGroup
+              {...register("operator")}
+              defaultValue="comfortable"
+              className="flex justify-end"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="roshan" id="r1" />
+                <Label htmlFor="r1">روشن</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="etesalat" id="r2" />
+                <Label htmlFor="r2">اتصالات</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="bisim" id="r3" />
+                <Label htmlFor="r3">افغان بیسیم</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="salam" id="r4" />
+                <Label htmlFor="r4">سلام</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="mtn" id="r5" />
+                <Label htmlFor="r5">ام تی ان</Label>
+              </div>
+            </RadioGroup>
             <Dialog>
               <DialogTrigger asChild>
                 <Button className="w-full mt-4" size="lg">
@@ -177,7 +212,7 @@ export default function Credits() {
               </DialogContent>
             </Dialog>
           </div>
-        </div>
+        </form>
         <div className="h-80 overflow-y-scroll mt-8">
           <Table>
             <TableCaption>لیســت آخرین تراکنش های شما</TableCaption>

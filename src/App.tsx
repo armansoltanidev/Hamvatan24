@@ -8,7 +8,6 @@ import Inquiry from "@/Features/Inquiry/Inquiry";
 import Bills from "@/Features/Bills/Bills";
 import Settings from "@/Features/Setting/Settings";
 import Support from "@/Features/Support/Support";
-import News from "@/Features/News/News";
 import Services from "@/Features/Services/Services";
 import Credits from "@/Features/Credits/Credits";
 
@@ -47,10 +46,6 @@ const router = createBrowserRouter([
         element: <Support />,
       },
       {
-        path: "/news",
-        element: <News />,
-      },
-      {
         path: "/services",
         element: <Services />,
       },
@@ -60,5 +55,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }

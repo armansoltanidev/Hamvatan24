@@ -7,7 +7,6 @@ import {
   TbMailDollar,
   TbDeviceIpadSearch,
   TbSettings,
-  TbBellExclamation,
   TbLayout2,
   TbUsersGroup,
 } from "react-icons/tb";
@@ -42,10 +41,6 @@ export default function Sidebar() {
       <SidebarItem to="/support">
         <TbHeadset />
         <span>پشتــیبانــی</span>
-      </SidebarItem>
-      <SidebarItem to="/news">
-        <TbBellExclamation />
-        <span>اطلاعیـــه هــا</span>
       </SidebarItem>
       <SidebarItem to="/services">
         <TbLayout2 />
